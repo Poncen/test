@@ -46,14 +46,14 @@ func say(tcpConn *net.TCPConn) {
 }
 
 func main() {
-	tcpAddr, _ := net.ResolveTCPAddr("tcp", "127.0.0.1:9999")
+	tcpAddr, _ := net.ResolveTCPAddr("tcp", "localhost:9999")
 	tcpListener, _ := net.ListenTCP("tcp", tcpAddr)
 	/*
 	   map 定义完后，还要make? (哪些数据类型定义完后，还要make?)
 	   http://stackoverflow.com/questions/27267900/runtime-error-assignment-to-entry-in-nil-map
 	*/
 	ConnMap = make(map[string]*net.TCPConn)
-
+	fmt.Println("start")
 	for {
 
 		tcpConn, _ := tcpListener.AcceptTCP()
